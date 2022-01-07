@@ -1,0 +1,17 @@
+{
+  "name": "blockchain2",
+  "version": "1.0.0",
+  "description": "A simple blockchain",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "start": "npx tsc && node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^17.0.6",
+    "typescript": "^4.5.4"
+  }
+}
