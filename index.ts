@@ -16,10 +16,11 @@ class Block {
     public nonce = Math.round(Math.random() * 999999999);
     // private static readonly NUM_TRANSACTIONS_PER_BLOCK = 10;
 
-    constructor(
+    constructor (
         public prevHash: string | null ,
         public transaction: Transaction,
-        public ts = Date.now()
+        public ts = Date.now(),
+        // public index?: number
     ) {}
 
     get hash() {
@@ -109,9 +110,26 @@ const bob = new Wallet();
 const alice = new Wallet();
 
 satoshi.sendMoney(50, bob.publicKey);
+
+console.log(Chain.instance.lastBlock.transaction);
+console.log(Chain.instance.lastBlock.hash);
+console.log('', JSON.stringify(Chain.instance.lastBlock))
+
 bob.sendMoney(23, alice.publicKey);
+
+console.log(Chain.instance.lastBlock.transaction);
+console.log(Chain.instance.lastBlock.hash);
+
 alice.sendMoney(5, bob.publicKey);
+
+console.log(Chain.instance.lastBlock.transaction);
+console.log(Chain.instance.lastBlock.hash);
+
+satoshi.sendMoney(60, bob.publicKey);
+
+console.log(Chain.instance.lastBlock.transaction);
+console.log(Chain.instance.lastBlock.hash);
+console.log('', JSON.stringify(Chain.instance.lastBlock))
 
 console.log(Chain.instance);
 console.log('\n\n', Chain.instance.lastBlock);
-console.log('\n\n', Chain.instance.lastBlock.hash);
